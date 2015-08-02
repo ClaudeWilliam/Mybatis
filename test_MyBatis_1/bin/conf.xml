@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+	<!--数据库的大多数配置都在db.properties 文件中 -->
+	<properties resource="db.properties">
+		<!-- 这个是用于设置数据库的一些属性的 -->
+		<!-- <property name="" value=""/> -->
+	</properties>
+	<!-- 这个标签是用来给一些类起别名 -->
+	<typeAliases>
+		<!-- 这个是针对包内的固定某个类来实现的 -->
+		<typeAlias type="com.qjq.modle.User" alias="User" />
+		<!-- 通过包名的方式来，来使用简单类名来实现对包内的一个类进行控制 ,与前面相比这个功能更强大一些 -->
+		<package name="com.qjq.modle" />
+	</typeAliases>
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<!-- 从db.properties文件中把相应的值取出来放到property中 -->
+				<property name="driver" value="${driver}" />
+				<property name="url" value="${url}" />
+				<property name="username" value="${username}" />
+				<property name="password" value="${password}" />
+			</dataSource>
+
+		</environment>
+	</environments>
+
+	<!-- 这里是用来注册你写的mapper -->
+	<mappers>
+		<mapper resource="com/qjq/test/Usermapper.xml" />
+		<mapper class="com.qjq.test1.UserMapper" />
+	</mappers>
+</configuration>

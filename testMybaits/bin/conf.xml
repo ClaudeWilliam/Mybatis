@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="com.mysql.jdbc.Driver" />
+				<property name="url" value="jdbc:mysql:///mybaits" />
+				<property name="username" value="root" />
+				<property name="password" value="qjq110120" />
+			</dataSource>
+		</environment>
+		
+	</environments>
+	<mappers>
+	<!--mapper.xml用的都是resources -->
+		<mapper resource="com/qjq/test/userMapper.xml" />
+		<mapper resource="com/qjq/test1/userMapper.xml" />
+		<!-- 注释方法写的话用的是class -->
+		<mapper class="com.qjq.test2.UserMapper"/>
+	</mappers>
+</configuration>

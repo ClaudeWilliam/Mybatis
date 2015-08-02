@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- mapper里封装了对某个实体类的CRUD的操作 -->
+<!-- 这里由于使用的别名所以在返回值类型和参数类型上不用使用全类名 -->
+<!-- <update id="updateUser" parameterType="com.qjq.modle.User"> -->
+<mapper namespace="com.qjq.test.Usermapper">
+	<insert id="insertUser" parameterType="User">
+		insert into user(name,age)
+		values(#{name},#{age})
+	</insert>
+	<select id="selectUserById" parameterType="int" resultType="User">
+		select * from user where id=#{id}
+	</select>
+	<update id="updateUser" parameterType="User">
+	update user set name=#{name},age#{age} where id=#{id} 
+	</update>
+	<delete id="deleteUser" parameterType="int">
+		delete from user id=#{id}
+	</delete>
+	<select id="selectUsers" resultType="User">
+		select * from user
+	</select>
+</mapper>
